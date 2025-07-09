@@ -1,2 +1,11 @@
+[build]
+language = "python"
+
 [phases.setup]
-nixPkgs = ["portaudio", "gcc", "alsa-lib", "libpulseaudio"]
+nixPkgs = ["python311", "gcc", "portaudio", "libpulseaudio", "alsa-lib"]
+
+[phases.build]
+cmds = ["python3 -m venv /opt/venv", "source /opt/venv/bin/activate", "pip install -r requirements.txt"]
+
+[start]
+cmd = "python run.py"
