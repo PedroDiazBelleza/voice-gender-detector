@@ -1,3 +1,4 @@
+"""
 import pandas as pd
 import numpy as np
 import os
@@ -14,9 +15,9 @@ label2int = {
 
 
 def load_data(vector_length=128):
-    """A function to load gender recognition dataset from `data` folder
+    A function to load gender recognition dataset from `data` folder
     After the second run, this will load from results/features.npy and results/labels.npy files
-    as it is much faster!"""
+    as it is much faster!
     # make sure results folder exists
     if not os.path.isdir("results"):
         os.mkdir("results")
@@ -68,7 +69,7 @@ def split_data(X, y, test_size=0.1, valid_size=0.1):
 
 
 def create_model(vector_length=128):
-    """5 hidden dense layers from 256 units to 64, not the best model, but not bad."""
+    5 hidden dense layers from 256 units to 64, not the best model, but not bad.
     model = Sequential()
     model.add(Dense(256, input_shape=(vector_length,)))
     model.add(Dropout(0.3))
@@ -87,3 +88,4 @@ def create_model(vector_length=128):
     # print summary of the model
     model.summary()
     return model
+"""
