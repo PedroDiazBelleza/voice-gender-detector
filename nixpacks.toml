@@ -5,9 +5,7 @@ language = "python"
 nixPkgs = ["python311", "gcc", "portaudio", "libpulseaudio", "alsa-lib"]
 
 [phases.build]
-cmds = [
-  "python3 -m venv /opt/venv",
-  "source /opt/venv/bin/activate",
+cmds = [ 
   "pip install --upgrade pip",
   "pip install -r requirements.txt"
 ]
