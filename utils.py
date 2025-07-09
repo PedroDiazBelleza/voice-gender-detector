@@ -89,3 +89,24 @@ def create_model(vector_length=128):
     model.summary()
     return model
 """
+
+
+import numpy as np
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
+
+def create_model(vector_length=128):
+    model = Sequential()
+    model.add(Dense(256, input_shape=(vector_length,)))
+    model.add(Dropout(0.3))
+    model.add(Dense(256, activation="relu"))
+    model.add(Dropout(0.3))
+    model.add(Dense(128, activation="relu"))
+    model.add(Dropout(0.3))
+    model.add(Dense(128, activation="relu"))
+    model.add(Dropout(0.3))
+    model.add(Dense(64, activation="relu"))
+    model.add(Dropout(0.3))
+    model.add(Dense(1, activation="sigmoid"))
+    model.compile(loss="binary_crossentropy", metrics=["accuracy"], optimizer="adam")
+    return model
