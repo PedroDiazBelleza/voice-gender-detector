@@ -1,4 +1,4 @@
-from test import extract_feature
+from features import extract_feature
 from .model_loader import load_model
 import numpy as np
 
