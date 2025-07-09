@@ -1,4 +1,5 @@
 data/
+test-samples/
 __pycache__/
 .env
 results/
