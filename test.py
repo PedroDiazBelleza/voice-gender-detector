@@ -1,4 +1,5 @@
-import pyaudio
+"""
+ import pyaudio
 import os
 import wave
 import librosa
@@ -61,14 +62,14 @@ def add_silence(snd_data, seconds):
     return r
 
 def record():
-    """
+    
     Record a word or words from the microphone and 
     return the data as an array of signed shorts.
     Normalizes the audio, trims silence from the 
     start and end, and pads with 0.5 seconds of 
     blank sound to make sure VLC et al can play 
     it without getting chopped off.
-    """
+    
     p = pyaudio.PyAudio()
     stream = p.open(format=FORMAT, channels=1, rate=RATE,
         input=True, output=True,
@@ -121,7 +122,7 @@ def record_to_file(path):
 
 
 def extract_feature(file_name, **kwargs):
-    """
+    
     Extract feature from audio file `file_name`
         Features supported:
             - MFCC (mfcc)
@@ -131,7 +132,7 @@ def extract_feature(file_name, **kwargs):
             - Tonnetz (tonnetz)
         e.g:
         `features = extract_feature(path, mel=True, mfcc=True)`
-    """
+    
     mfcc = kwargs.get("mfcc")
     chroma = kwargs.get("chroma")
     mel = kwargs.get("mel")
@@ -164,8 +165,8 @@ if __name__ == "__main__":
     # model = pickle.load(open("result/mlp_classifier.model", "rb"))
     from utils import load_data, split_data, create_model
     import argparse
-    parser = argparse.ArgumentParser(description="""Gender recognition script, this will load the model you trained, 
-                                    and perform inference on a sample you provide (either using your voice or a file)""")
+    parser = argparse.ArgumentParser(description=Gender recognition script, this will load the model you trained, 
+                                    and perform inference on a sample you provide (either using your voice or a file))
     parser.add_argument("-f", "--file", help="The path to the file, preferred to be in WAV format")
     args = parser.parse_args()
     file = args.file
@@ -189,3 +190,4 @@ if __name__ == "__main__":
     # show the result!
     print("Result:", gender)
     print(f"Probabilities:     Male: {male_prob*100:.2f}%    Female: {female_prob*100:.2f}%")
+"""
