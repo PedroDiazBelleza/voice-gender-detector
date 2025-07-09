@@ -2,7 +2,7 @@
 language = "python"
 
 [phases.setup]
-nixPkgs = ["python311", "gcc", "portaudio", "libpulseaudio", "alsa-lib"]
+nixPkgs = ["python311", "gcc", "ffmpeg", "portaudio", "libpulseaudio", "alsa-lib"]
 
 [phases.build]
 cmds = [ 
