@@ -1,5 +1,7 @@
-uploads/
 data/
 __pycache__/
 .env
+results/
+uploads/
+*.h5
 
